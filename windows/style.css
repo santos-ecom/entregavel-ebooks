@@ -1066,35 +1066,37 @@ body {
 
     .sidebar-nav {
         position: static;
-        /* Remove from bottom */
         width: 100%;
         height: auto;
         background: transparent;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        padding: 0;
+        padding: 0 1rem;
         margin-top: 0;
-        flex-direction: row;
-        justify-content: space-around;
-        /* Distribute buttons */
-        align-items: center;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
         border-top: none;
         z-index: 100;
-        gap: 0;
+        gap: 0.8rem;
     }
 
     .nav-item {
-        flex-direction: column;
-        gap: 0;
-        padding: 0.5rem;
-        background: transparent;
-        border-radius: 8px;
-        font-size: 0.7rem;
-        justify-content: center;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1.2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        font-size: 1.1rem;
+        justify-content: flex-start;
         align-items: center;
-        flex: 1;
+        flex: none;
         max-width: none;
-        /* Allow filling space */
+    }
+
+    .nav-item.active {
+        background: rgba(255, 215, 0, 0.1);
+        border: 1px solid rgba(255, 215, 0, 0.2);
     }
 
     .nav-item i {
@@ -1103,7 +1105,7 @@ body {
     }
 
     .nav-item span {
-        display: none;
+        display: block;
     }
 
     .nav-item.logout {
