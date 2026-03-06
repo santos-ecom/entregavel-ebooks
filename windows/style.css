@@ -520,6 +520,10 @@ body {
     background: rgba(255, 77, 77, 0.1);
 }
 
+.mobile-only-nav {
+    display: none !important;
+}
+
 .main-content {
     flex: 1;
     overflow-y: auto;
@@ -1066,44 +1070,63 @@ body {
 
     .sidebar-nav {
         position: static;
-        /* Remove from bottom */
         width: 100%;
         height: auto;
         background: transparent;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        padding: 0;
+        padding: 1rem;
         margin-top: 0;
-        flex-direction: row;
-        justify-content: space-around;
-        /* Distribute buttons */
-        align-items: center;
+        flex-direction: column; /* Stack vertically instead of row */
+        justify-content: flex-start;
+        align-items: stretch; /* Full width */
         border-top: none;
         z-index: 100;
-        gap: 0;
+        gap: 1rem; /* Spacing between buttons */
     }
 
     .nav-item {
-        flex-direction: column;
+        flex-direction: row; /* Icon left, text center */
         gap: 0;
-        padding: 0.5rem;
-        background: transparent;
-        border-radius: 8px;
-        font-size: 0.7rem;
+        padding: 1.2rem;
+        background: rgba(255, 255, 255, 0.05); /* Make it look like a button */
+        border-radius: 12px;
+        font-size: 1.1rem;
         justify-content: center;
         align-items: center;
-        flex: 1;
+        flex: none;
         max-width: none;
-        /* Allow filling space */
+        position: relative; /* For absolutely positioned icon */
+    }
+    
+    .nav-item.active {
+        background: rgba(255, 215, 0, 0.1);
+        border: 1px solid rgba(255, 215, 0, 0.2);
     }
 
     .nav-item i {
         width: 24px;
         height: 24px;
+        position: absolute;
+        left: 1.5rem; /* Icon strictly in corner */
     }
 
     .nav-item span {
         display: none;
+    }
+
+    .nav-item span.desktop-text {
+        display: none !important;
+    }
+
+    .nav-item span.mobile-text {
+        display: block !important;
+        font-weight: 500;
+        color: inherit;
+    }
+
+    .mobile-only-nav {
+        display: flex !important; /* Will act as flex button since base .nav-item is flex */
     }
 
     .nav-item.logout {
