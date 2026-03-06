@@ -978,7 +978,8 @@ body {
     #dashboard-view,
     #other-tools-view {
         flex-direction: column;
-        height: 100dvh;
+        height: auto;
+        min-height: 100dvh;
         /* Use dynamic viewport height */
     }
 
@@ -987,8 +988,7 @@ body {
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--glass-border);
-        position: fixed;
-        top: 0;
+        position: static;
         z-index: 100;
         background: rgba(5, 5, 5, 0.95);
         padding: 0.8rem 1rem;
@@ -1116,12 +1116,10 @@ body {
 
     .main-content {
         padding: 1rem;
-        padding-top: calc(240px + env(safe-area-inset-top));
-        /* Increased for taller header */
+        padding-top: 1rem;
         padding-bottom: calc(100px + env(safe-area-inset-bottom));
         /* Further increased bottom padding */
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        overflow-y: visible;
     }
 
     .top-bar {
