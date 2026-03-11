@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FS For Seniors - Courses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="airfryer/logo.png" alt="FS For Seniors Logo" class="logo">
+        <h1>Members Area</h1>
+        <p>Choose your course below:</p>
+        <div class="grid">
+            <a href="/airfryer/" class="card">
+                <h3>Air Fryer Cookbook</h3>
+                <span class="btn">Access</span>
+            </a>
+            <a href="/windows/" class="card">
+                <h3>Windows 11 for Seniors</h3>
+                <span class="btn">Access</span>
+            </a>
+            <a href="/diabetes/" class="card">
+                <h3>Diabetic Diet After 60</h3>
+                <span class="btn">Access</span>
+            </a>
+            <a href="/mediterraneo/" class="card">
+                <h3>Mediterranean Diet</h3>
+                <span class="btn">Access</span>
+            </a>
+        </div>
+        <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 2rem;">Updated: 2026-03-06</p>
+    </div>
+</body>
+
+</html>
