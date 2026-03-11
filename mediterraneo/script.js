@@ -1,4 +1,4 @@
-﻿// DOM Elements
+// DOM Elements
 const dashboardView = document.getElementById('dashboard-view');
 const navItems = document.querySelectorAll('.nav-item[data-tab]');
 const tabContents = document.querySelectorAll('.tab-content');
@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // Default to 'how-to-use' tab
-    switchTab('how-to-use');
+    // Get saved tab or default to 'how-to-use'
+    const savedTab = localStorage.getItem('activeTab_' + window.location.pathname) || 'how-to-use';
+    switchTab(savedTab);
 
     // Bind Sidebar Nav
     const navItems = document.querySelectorAll('.nav-item[data-tab]');
@@ -28,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Tab Switching Logic ---
 function switchTab(tabId) {
+    // Save state to localStorage
+    localStorage.setItem('activeTab_' + window.location.pathname, tabId);
     // 0. RESET STATE of all modules/accordions
     resetSubmodules();
 
@@ -124,7 +127,7 @@ function bindModuleNavigation() {
                 } else {
                     console.warn(`View ${viewId} not found`);
                     // Create view dynamically if missing? Or just alert.
-                    // alert("ConteÃºdo em breve!");
+                    // alert("Conteúdo em breve!");
                     createAndOpenTemporaryView(i);
                 }
             });
