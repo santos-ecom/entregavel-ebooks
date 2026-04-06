@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wait! Special Offer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .top-banner {
+            background-color: #ff0000;
+            color: #ffff00;
+            padding: 15px 10px;
+            font-weight: 900;
+            font-size: clamp(14px, 4vw, 24px);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2.yellow-title {
+            color: #ffff00;
+            font-size: clamp(20px, 5vw, 32px);
+            font-weight: 900;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: clamp(16px, 4vw, 20px);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .price-section {
+            margin: 50px 0;
+        }
+
+        .last-chance {
+            font-size: clamp(18px, 4.5vw, 28px);
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .yellow-price {
+            color: #ffff00;
+            font-size: clamp(32px, 8vw, 55px);
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+
+        #hotmart-sales-funnel {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .no-thanks-btn {
+            background-color: #8b0000;
+            color: #fff;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-banner">
+        DO NOT CLOSE THIS PAGE, YOUR PURCHASE IS BEING PROCESSED!!
+    </div>
+
+    <div class="container">
+        <h2 class="yellow-title">Wait a moment before you leave…</h2>
+
+        <p>Before you close this page, let me give you one last opportunity.</p>
+
+        <p>We noticed that you decided not to take the Air Fryer Video Recipes Course, and that’s totally okay. But
+            there’s something important you should know.</p>
+
+        <p>Most people who buy an Air Fryer recipe book still struggle when they try to make the recipes for the first
+            time. And the reason is simple…</p>
+
+        <p>Reading a recipe helps. But watching someone prepare it step by step makes everything much easier.</p>
+
+        <p>You can see the ingredients. You can see the preparation. You can see the exact temperature and cooking time.
+            And you can see how the final result should look.</p>
+
+        <p>That’s exactly why we created this exclusive video course.</p>
+
+        <p>Inside, you’ll be able to watch real demonstrations of recipes being prepared in the Air Fryer, step by step,
+            making everything easier to follow and much easier to get right.</p>
+
+        <p>And normally, access to this course costs nineteen dollars and ninety cents.</p>
+
+        <p>But because you’re still here on this page, we decided to give you one final opportunity.</p>
+
+        <p>Right now, you can get full access to the Air Fryer Video Recipes Course for only twelve dollars and ninety
+            cents.</p>
+
+        <p>Yes… from $19.90 down to just $12.90.</p>
+
+        <div class="price-section">
+            <div class="last-chance">Last chance to get this opportunity for:</div>
+            <div class="yellow-price">$19.90 for $12.90</div>
+
+            <!-- HOTMART - Sales Funnel Widget -->
+            <div id="hotmart-sales-funnel"></div>
+            <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+            <script>
+                checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+            </script>
+            <!-- HOTMART - Sales Funnel Widget -->
+        </div>
+    </div>
+
+</body>
+
+</html>

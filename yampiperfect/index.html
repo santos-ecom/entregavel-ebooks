@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOP — Novo Produto</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0eeff 0%, #e8f8f2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 16px;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #2d2d2d;
+            margin: 8px 0 4px;
+        }
+
+        .header p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 28px 32px;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
+            max-width: 560px;
+            width: 100%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .card h2 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            margin-bottom: 16px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #6c63ff;
+        }
+
+        .btn {
+            border-radius: 10px;
+            padding: 11px 22px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 6px 6px 0 0;
+            border: 2px solid;
+            transition: all 0.15s;
+        }
+
+        .btn-primary {
+            background: #6c63ff;
+            color: #fff;
+            border-color: #6c63ff;
+        }
+
+        .btn-red {
+            background: #e74c3c;
+            color: #fff;
+            border-color: #e74c3c;
+        }
+
+        .btn-green {
+            background: #2ecc71;
+            color: #fff;
+            border-color: #2ecc71;
+        }
+
+        .btn-orange {
+            background: transparent;
+            color: #f39c12;
+            border-color: #f39c12;
+        }
+
+        .btn-gray {
+            background: transparent;
+            color: #888;
+            border-color: #888;
+        }
+
+        .tag {
+            display: inline-block;
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 3px 4px 3px 0;
+        }
+
+        .tag-red {
+            background: #fde8e8;
+            color: #e74c3c;
+            border: 1px solid #f5a5a5;
+        }
+
+        .tag-green {
+            background: #e8f8f0;
+            color: #2ecc71;
+            border: 1px solid #a5e8c5;
+        }
+
+        .tag-label {
+            font-size: 12px;
+            color: #888;
+            font-weight: 700;
+            margin: 0 0 6px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            background: #f5f5f5;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .check-item.done {
+            background: #d4f7e7;
+            border-color: #2ecc71;
+            font-weight: 600;
+        }
+
+        .check-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: #2ecc71;
+            cursor: pointer;
+        }
+
+        .success {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: #d4f7e7;
+            border-radius: 10px;
+            color: #27ae60;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .section-tags {
+            margin-bottom: 16px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .accent-purple {
+            border-top: 5px solid #6c63ff;
+        }
+
+        .accent-orange {
+            border-top: 5px solid #f39c12;
+        }
+
+        .accent-red {
+            border-top: 5px solid #e74c3c;
+        }
+
+        .accent-green {
+            border-top: 5px solid #2ecc71;
+        }
+
+        .accent-gray {
+            border-top: 5px solid #aaa;
+        }
+
+        /* Novas regras para o teste de webhook */
+        .test-input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .test-grid {
+            display: grid;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-test {
+            background: #eef2ff;
+            color: #6c63ff;
+            border: 1px solid #6c63ff;
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .btn-test:hover {
+            background: #6c63ff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div style="font-size:36px">📦</div>
+        <h1>SOP — Novo Produto</h1>
+        <p>Fluxo de cadastro passo a passo</p>
+    </div>
+
+    <div id="tela-start" class="card accent-purple">
+        <h2 style="color:#6c63ff">🚀 Chegou uma nova venda!</h2>
+        <p>Qual é o nome do produto?</p>
+        <input type="text" id="nome-produto" placeholder="Ex: Licença Lightburn, Planilha de Custos..." />
+        <button class="btn btn-primary" onclick="irParaPPI()">Continuar →</button>
+    </div>
+
+    <div id="tela-ppi" class="card accent-orange hidden">
+        <h2 style="color:#f39c12">🔍 Passo 1 — Verificar Propriedade Intelectual</h2>
+        <p>O produto <strong id="nome-exibido"></strong> usa software ou marca de terceiros?</p>
+        <div class="section-tags">
+            <p class="tag-label">✅ TEM PPI (exemplos):</p>
+            <span class="tag tag-red">Lightburn</span>
+            <span class="tag tag-red">Adobe</span>
+            <span class="tag tag-red">Excel</span>
+            <span class="tag tag-red">CapCut</span>
+            <span class="tag tag-red">Canva</span>
+            <span class="tag tag-red">ChatGPT</span>
+            <span class="tag tag-red">Gemini</span>
+            <span class="tag tag-red">Vo3</span>
+            <span class="tag tag-red">Elementor</span>
+        </div>
+        <div class="section-tags">
+            <p class="tag-label">❌ NÃO TEM PPI (exemplos):</p>
+            <span class="tag tag-green">Planilhas próprias</span>
+            <span class="tag tag-green">Sistemas autorais</span>
+            <span class="tag tag-green">PDFs</span>
+            <span class="tag tag-green">Corte de máquinas</span>
+            <span class="tag tag-green">Prompts de GPT</span>
+            <span class="tag tag-green">Estampas</span>
+            <span class="tag tag-green">Canecas</span>
+            <span class="tag tag-green">Arte autoral</span>
+        </div>
+        <button class="btn btn-red" onclick="irParaYampi()">✅ Sim, tem PPI → Yampi</button>
+        <button class="btn btn-green" onclick="irParaPerfect()">❌ Não tem → Perfect</button>
+        <button class="btn btn-orange" onclick="irParaDuvida()">🤔 Não sei</button>
+    </div>
+
+    <div id="tela-duvida" class="card accent-gray hidden">
+        <h2 style="color:#555">💬 Na dúvida, pergunte!</h2>
+        <p>Não conseguiu identificar se o produto tem propriedade intelectual de terceiros?<br><br>
+            <strong>Pergunte ao responsável antes de prosseguir.</strong> Só avance após ter certeza.
+        </p>
+        <button class="btn btn-gray" onclick="irParaPPI()">← Voltar</button>
+    </div>
+
+    <div id="tela-yampi" class="card accent-red hidden">
+        <h2 style="color:#e74c3c">🛒 Passo 2 — Yampi</h2>
+        <p>Produto com PPI → vai para a <strong>Yampi</strong>. Conclua as tarefas abaixo:</p>
+        <label class="check-item" id="check-y2">
+            <input type="checkbox" onchange="marcar('y2', 'check-y2', verificarYampi)">
+            � Criar webhook e cadastrar no Reportana
+        </label>
+        <label class="check-item" id="check-y3">
+            <input type="checkbox" onchange="marcar('y3', 'check-y3', verificarYampi)">
+            🧪 Testar funcionamento do webhook - email, telefone, cpf
+        </label>
+        <div id="sucesso-yampi" class="success hidden">🎉 Produto cadastrado com sucesso na Yampi!</div>
+        <div style="margin-top:16px">
+            <button class="btn btn-gray" onclick="irParaPPI()">← Voltar</button>
+            <button id="btn-novo-yampi" class="btn btn-primary hidden" onclick="reiniciar()">✅ Novo produto</button>
+        </div>
+    </div>
+
+    <div id="tela-perfect" class="card accent-green hidden">
+        <h2 style="color:#27ae60">⚡ Passo 2 — Perfect Pay</h2>
+        <p>Produto sem PPI → vai para o <strong>Perfect Pay</strong>. Conclua todas as tarefas:</p>
+        <label class="check-item" id="check-p1">
+            <input type="checkbox" onchange="marcar('p1', 'check-p1', verificarPerfect)">
+            📦 Cadastrar o produto na Perfect Pay
+        </label>
+        <label class="check-item" id="check-p2">
+            <input type="checkbox" onchange="marcar('p2', 'check-p2', verificarPerfect)">
+            📁 Colocar o entregável dentro da plataforma
+        </label>
+        <label class="check-item" id="check-p3">
+            <input type="checkbox" onchange="marcar('p3', 'check-p3', verificarPerfect)">
+            🎯 Adicionar os 2 pixels (Meta + outros)
+        </label>
+        <label class="check-item" id="check-p4">
+            <input type="checkbox" onchange="marcar('p4', 'check-p4', verificarPerfect)">
+            🔗 Criar webhook e cadastrar no Reportana
+        </label>
+        <label class="check-item" id="check-p6">
+            <input type="checkbox" onchange="marcar('p6', 'check-p6', verificarPerfect)">
+            🧪 Testar funcionamento do webhook - email, telefone, cpf
+        </label>
+        <label class="check-item" id="check-p5">
+            <input type="checkbox" onchange="marcar('p5', 'check-p5', verificarPerfect)">
+            📬 Configurar webhook no Reportana como entregável
+        </label>
+        <div id="sucesso-perfect" class="success hidden">🎉 Produto cadastrado com sucesso na Perfect Pay!</div>
+        <div style="margin-top:16px">
+            <button class="btn btn-gray" onclick="irParaPPI()">← Voltar</button>
+            <button id="btn-novo-perfect" class="btn btn-primary hidden" onclick="reiniciar()">✅ Novo produto</button>
+        </div>
+    </div>
+
+    <script>
+        const feitas = {};
+        let origemTeste = '';
+        function mostrar(id) {
+            ['tela-start', 'tela-ppi', 'tela-duvida', 'tela-yampi', 'tela-perfect'].forEach(t => {
+                document.getElementById(t).classList.add('hidden');
+            });
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function irParaPPI() {
+            const nome = document.getElementById('nome-produto').value.trim();
+            if (!nome) { alert('Digite o nome do produto primeiro!'); return; }
+            document.getElementById('nome-exibido').textContent = '"' + nome + '"';
+            mostrar('tela-ppi');
+        }
+        function irParaYampi() { mostrar('tela-yampi'); }
+        function irParaPerfect() { mostrar('tela-perfect'); }
+        function irParaDuvida() { mostrar('tela-duvida'); }
+        function marcar(key, checkId, callback) {
+            const el = document.getElementById(checkId);
+            const checked = el.querySelector('input').checked;
+            if (checked) el.classList.add('done');
+            else el.classList.remove('done');
+            feitas[key] = checked;
+            callback();
+        }
+        function verificarYampi() {
+            if (feitas['y2'] && feitas['y3']) {
+                document.getElementById('sucesso-yampi').classList.remove('hidden');
+                document.getElementById('btn-novo-yampi').classList.remove('hidden');
+            } else {
+                document.getElementById('sucesso-yampi').classList.add('hidden');
+                document.getElementById('btn-novo-yampi').classList.add('hidden');
+            }
+        }
+        function verificarPerfect() {
+            if (feitas['p1'] && feitas['p2'] && feitas['p3'] && feitas['p4'] && feitas['p5'] && feitas['p6']) {
+                document.getElementById('sucesso-perfect').classList.remove('hidden');
+                document.getElementById('btn-novo-perfect').classList.remove('hidden');
+            } else {
+                document.getElementById('sucesso-perfect').classList.add('hidden');
+                document.getElementById('btn-novo-perfect').classList.add('hidden');
+            }
+        }
+        function reiniciar() {
+            document.getElementById('nome-produto').value = '';
+            ['y2', 'y3', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6'].forEach(k => feitas[k] = false);
+            ['check-y2', 'check-y3', 'check-p1', 'check-p2', 'check-p3', 'check-p4', 'check-p5', 'check-p6'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) { el.classList.remove('done'); el.querySelector('input').checked = false; }
+            });
+            mostrar('tela-start');
+        }
+    </script>
+</body>
+
+</html>
