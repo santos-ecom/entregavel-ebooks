@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Handle Directory Indexing for Clean Slugs
+# This ensures that /airfryer/ serves /airfryer/index.html
+DirectoryIndex index.html
+
+# Optional: Remove trailing slash from URLs for cleaner look
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)/$ /$1 [L,R=301]
